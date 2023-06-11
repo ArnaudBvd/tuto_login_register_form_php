@@ -1,3 +1,7 @@
+<?php
+require 'connect.php';
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -13,6 +17,14 @@
     <div class="container">
         <h1>Me connecter</h1>
 
+        <?php
+        // Afficher un message en cas d'enregistrement d'utilisateur réussi
+        if(isset($_GET['message']) && $_GET['message'] = 'success-login'){
+            echo ('<div class="alert alert-success" role="alert"> Vous êtes enregistré </div>');
+            
+        }
+        ?>
+
         <form action="" method="post">
             <div class="form-group">
                 <label for="email">Email</label>
@@ -25,10 +37,11 @@
             </div>
 
             <input type="submit" class="btn btn-success my-3" value="Envoyer">
-    </div>
-    </form>
+        </form>
 
-    <a href="register.php">M'enregistrer</a>
+        <a href="register.php">M'enregistrer</a>
+    </div>
+
 </body>
 
 </html>

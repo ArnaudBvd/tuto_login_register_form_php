@@ -1,7 +1,7 @@
 <?php
 require 'connect.php';
-
 $errors = [];
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Email saisi
@@ -37,7 +37,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errors['password2'] = "Veuillez confirmer votre mot de passe";
     }
 
+    // Le mot de passe fait 4 caractères
+    if(strlen($_POST['password'])<4){
+        $errors['password'] = "Le mot de passe doit au minimum faire 4 caractères";
+    }
+
     // Password confirmé
+    if($_POST['password'] != $_POST['password2']){
+        $errors['password2'] = 'Les mots de passe ne sont pas identiques';
+    }
+
+    // Si aucune erreur n'a été comptabilisé, on enregistre l'utilisateur et on le redirige
+    if(count($errors) == 0){
+        // Enregistrer un utilisateur
+        $request = $pdo->prepare('INSERT INTO user (email, password) VALUES (:email, :password)');
+        $request->bindParam(':email', $_POST['email']);
+        $request->bindParam(':password', password_hash($_POST['password'], PASSWORD_DEFAULT));
+        $request->execute();
+
+        // Redirection de l'utilisateur vers le login
+        header('Location: login.php?message=success-login');
+    }
 }
 
 ?>

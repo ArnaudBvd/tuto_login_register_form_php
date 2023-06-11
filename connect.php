@@ -1,7 +1,7 @@
 <?php
 try {
         $host = 'localhost';
-        $dbName = 'authent-pe5';
+        $dbName = 'authent_pe5';
         $user = 'root';
         $password = '';
 
