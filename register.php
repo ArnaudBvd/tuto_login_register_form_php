@@ -18,9 +18,11 @@
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="Email" class="form-control">
             </div>
+
             <div class="form-group mt-3">
                 <label for="password">Mot de passe</label>
                 <input type="password" id="password" name="password" placeholder="Mot de passe" class="form-control">
+                
                 <label for="password2">Confirmation du mot de passe</label>
                 <input type="password2" id="password2" name="password2" placeholder="Confirmez le mot de passe" class="form-control">
             </div>

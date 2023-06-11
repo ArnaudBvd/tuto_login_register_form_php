@@ -10,7 +10,23 @@
 </head>
 
 <body>
-    <h1>Me connecter</h1>
+    <div class="container">
+        <h1>Me connecter</h1>
+
+        <form action="" method="post">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Email" class="form-control">
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password" placeholder="Mot de passe" class="form-control">
+            </div>
+
+            <input type="submit" class="btn btn-success my-3" value="Envoyer">
+    </div>
+    </form>
 
     <a href="register.php">M'enregistrer</a>
 </body>
