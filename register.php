@@ -49,7 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Si aucune erreur n'a été comptabilisé, on enregistre l'utilisateur et on le redirige
     if(count($errors) == 0){
-        // Enregistrer un utilisateur
+
+        // Enregistrer un utilisateur avec hashage du mot de passe
         $request = $pdo->prepare('INSERT INTO user (email, password) VALUES (:email, :password)');
         $request->bindParam(':email', $_POST['email']);
         $request->bindParam(':password', password_hash($_POST['password'], PASSWORD_DEFAULT));
